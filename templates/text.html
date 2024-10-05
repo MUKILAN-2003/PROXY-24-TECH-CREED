@@ -34,11 +34,11 @@
                 <a href="/text">Text Translate</a>
                 <a href="/audio">Audio Translate</a>
                 <a href="/video">Video Translate</a>
-                <a href="/image">Image Translate</a>
+                
                 <a href="/texttran">Text Transliteration</a>
                 <a href="/audiotran">Audio Transliteration</a>
                 <a href="/videotran">Video Transliteration</a>
-                <a href="/imagetran">Image Transliteration</a>
+                
                 <a class="btn btn-primary" style="color: white; margin: 20px;" href="/logout">logout</a> 
               </div>
               
@@ -86,7 +86,9 @@
                   </select><br><br>
                   {% endif %}
 
-                  <textarea class="form-control" name="text" placeholder="Enter text" style="height: 85px;"></textarea><br><br>
+                  <textarea class="form-control" name="text" placeholder="Enter text" style="height: 85px;" id="speechText"></textarea>
+                  <button id="recordButton">Start Recording</button>
+
                   <button class="btn btn-primary" type="submit">Translate</button>
                 </form>
               </div>
@@ -110,6 +112,50 @@
     </div>
   </section>
   <!-- Team Section End -->
+
+  <script>
+    // Function to start speech recognition
+function startRecording(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    
+    // Check if the browser supports the Web Speech API
+    if ('webkitSpeechRecognition' in window) {
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.lang = 'en-US'; // Set the language
+        recognition.continuous = false; // Stop automatically after speaking
+        recognition.interimResults = false; // Return only final results
+
+        // Start speech recognition
+        recognition.start();
+
+        // When speech recognition returns a result
+        recognition.onresult = function(event) {
+            // Get the transcribed text from the result
+            var spokenText = event.results[0][0].transcript;
+
+            // Insert the transcribed text into the textarea
+            document.getElementById("speechText").value = spokenText;
+        };
+
+        // Handle errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error: ", event.error);
+        };
+
+        // Stop the recognition when it ends
+        recognition.onend = function() {
+            console.log("Speech recognition ended.");
+        };
+    } else {
+        alert("Your browser does not support speech recognition. Try using Google Chrome.");
+    }
+}
+
+// Attach the event listener to the button
+document.getElementById('recordButton').addEventListener('click', startRecording);
+
+  </script>
 </body>
 
 </html>
