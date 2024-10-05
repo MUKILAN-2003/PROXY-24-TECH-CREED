@@ -16,10 +16,54 @@ Students often struggle to keep up with lectures due to the fast pace, compounde
 3. Limited resources: Create or offer supplementary materials in multiple languages and formats.
 4. Non0native speakers: Using transliteration to convert subject-specific terminology into the student's native script, enabling easier pronunciation and understanding.
 
-##  Solution Overview
+##  Solution Workflow
+Updated Soon !!
 
 ## Tech Stack Used
+- Programming Language: Python
 
-##  Aooucation on the local SYstsm
+- Web Framework: Flask
+
+- Speech-to-Text: SpeechRecognition
+
+- Language Identification: FastText
+
+- Text Embedding: Facebook LLaMA Tokenizer
+
+- Translation/Transliteration: LLaMA Model / ai4bharat
+  
+##  Setting Up on the local Systsm
+### Install Prerequisites:
+```Ensure you have Python installed (preferably version 3.7 or higher).```
+
+### Clone the Repository::
+```
+git clone https://github.com/MUKILAN-2003/PROXY-24-TECH-CREED
+cd PROXY-24-TECH_CREED
+pip install -r requirement.txt
+```
+
+### Fasttext AI Model:
+```
+!wget https://dl.fbaipublicfiles.com/nllb/lid/lid218e.bin
+
+copy the above file inside the models/supportFile/
+```
+
+### Run the Flask Server:
+```
+python main.py
+```
 
 ## Impoact and Benefits
+1. Enhanced Comprehension: The solution enables users to better understand spoken content by providing accurate text translations or transliterations, thus facilitating learning and communication.
+2. Support for Multilingual Environments: The solution is particularly beneficial in diverse settings, such as classrooms or workplaces, where individuals speak different languages.
+3. Time-Saving: Automated speech-to-text conversion and language identification save users time compared to manual transcription and translation, improving overall productivity.
+4. Immediate Audio Capture : Users can upload or stream audio directly into the application, allowing for on-the-fly processing without delays.
+
+# Reseach and References
+- https://ai4bharat.iitm.ac.in/
+- https://www.codespeedy.com/extract-audio-from-video-using-python/
+- https://www.arxiv-vanity.com/papers/1710.08969/
+- https://github.com/meta-llama/llama/blob/main/MODEL_CARD.md
+- https://www.thepythoncode.com/article/using-speech-recognition-to-convert-speech-to-text-python
