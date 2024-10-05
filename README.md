@@ -17,8 +17,7 @@ Students often struggle to keep up with lectures due to the fast pace, compounde
 4. Non0native speakers: Using transliteration to convert subject-specific terminology into the student's native script, enabling easier pronunciation and understanding.
 
 ##  Solution Workflow
-![image](https://github.com/user-attachments/assets/495d44a4-860e-4711-8508-e35583dfa1ff)
-
+![image](https://github.com/user-attachments/assets/9be9ecaa-8d6b-45f3-b2e1-dcd20d54d8bf)
 
 ## Tech Stack Used
 - Programming Language: Python
