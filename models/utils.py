@@ -4,6 +4,11 @@ import os
 # libraries for multilanguage translation
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
+import speech_recognition as sr 
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
+import sys
+
 # Language TRanslation
 checkpoint = 'facebook/nllb-200-distilled-600M'
 

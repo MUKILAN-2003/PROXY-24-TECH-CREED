@@ -1,8 +1,15 @@
 import os
 import sys
 from flask import Flask
+from json import load
 
-from flask_cors import CORS
+# from modules.utils import *
 
-app = Flask(__name__)
-CORS(app)
+STATIC_FOLDER = sys.path[0] + '/static/'
+UPLOAD_FOLDER = sys.path[0] + '/static/uploads/'
+TEMPLATES_FOLDER = sys.path[0] + '/templates/'
+
+app = Flask(__name__, template_folder=TEMPLATES_FOLDER, static_folder=STATIC_FOLDER)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+app.secret_key = "SSKEY"
