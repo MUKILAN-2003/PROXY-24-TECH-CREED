@@ -14,9 +14,9 @@ Students often struggle to keep up with lectures due to the fast pace, compounde
 1. Lecture speed: Offer recorded lectures or slower-paced options to allow students to review at their own pace.
 2. Language barrier: Provide transliteration and translated resources to help non-native speakers understand terminology and concepts.
 3. Limited resources: Create or offer supplementary materials in multiple languages and formats.
-4. Non0native speakers: Using transliteration to convert subject-specific terminology into the student's native script, enabling easier pronunciation and understanding.
+4. Non-native speakers: Using transliteration to convert subject-specific terminology into the student's native script, enabling easier pronunciation and understanding.
 
-##  Solution Workflow
+##  Solution Technical Workflow
 ![image](https://github.com/user-attachments/assets/9be9ecaa-8d6b-45f3-b2e1-dcd20d54d8bf)
 
 ## Tech Stack Used
