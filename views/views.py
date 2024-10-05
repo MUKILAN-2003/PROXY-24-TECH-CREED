@@ -235,7 +235,7 @@ def videotran():
                 text_audio(translated_text,transliterationcodetolanguage[language],translatedaudiopath)
                 combine_audio_video(videopath,translatedaudiopath,combinedvideopath)
 
-                return render_template('videotran.html', result=True, translated_text=translated_text, audipPath=audiopath.split('\\')[-1], videoPath=file.filename, common_language = transliterationlanguage)
+                return render_template('videotran.html', result=True, translated_text=translated_text, audipPath=audiopath.split('/')[-1], videoPath=file.filename, common_language = transliterationlanguage)
 
         return render_template('videotran.html', result=False, translated_text='', videoPath='', audipPath = '', common_language = transliterationlanguage)
 
