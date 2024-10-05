@@ -32,7 +32,7 @@ english2vernacular = XlitEngine(src_script_type="roman", beam_width=10, rescore=
 vernacular2english = XlitEngine(src_script_type="indic", beam_width=10, rescore=False)
 
 # Text Lang Detection
-pretrained_lang_model = "modules/supportFile/lid218e.bin" # Path of model file
+pretrained_lang_model = "models/supportFile/lid218e.bin" # Path of model file
 modelTextDetection = fasttext.load_model(pretrained_lang_model)
 
 # Language TRanslation
@@ -74,11 +74,6 @@ def text2textTranslation(source,target,text):
     print(translated_text)
     return translated_text
 
-def imageCaptioning(path):
-    result = captioner(path)
-    return result[0]['generated_text']
-
-#imageCaptioning('uploads/image/cat.png')
 # print(dectLang("صباح الخير، الجو جميل اليوم والسماء صافية."))
 # print(text2textTranslation(source='arb_Arab',target='eng_lat', text="صباح الخير، الجو جميل اليوم والسماء صافية."))\
 
@@ -102,47 +97,6 @@ def text_audio(translation_text, language,path):
     myobj = gTTS(text=translation_text, lang=lan, slow=False)
     myobj.save(path)
     return path
-
-
-#path - path with a video filename
-# filename - only the videoname
-# audiofolder - denotes where the audio is stored
-
-def extract_video_audio(path, filename , audiofolder):
-    videoClip = VideoFileClip(path)
-    aud_filename = filename.split('.')[0] + '.wav'
-    videoClip.audio.write_audiofile(os.path.join(audiofolder, aud_filename))
-    aud_filepath = os.path.join(audiofolder, aud_filename)
-    return aud_filepath  # return a audio file path
-
-
-# videopath, audiopath, combinedvideopath - folderpath with a filename
-def combine_audio_video(videopath, audiopath, combinedvideopath):
-    videoclip = VideoFileClip(videopath)
-    audioclip = AudioFileClip(audiopath)
-    video = videoclip.set_audio(audioclip)
-    video.write_videofile(combinedvideopath)
-    return combinedvideopath
-
-
-# path of the audiofile with filename
-def englishimage_englishtext(path,target):
-    path = sys.path[0] + "/static/uploads/image/{0}".format(path)
-
-    caption = imageCaptioning(path)
-    source = dectLang(caption)
-
-    translated = text2textTranslation(source,target,caption)
-    return caption, translated
-
-# path of the audiofile with filename
-def englishimage_englishtext_tran(path,target):
-    path = sys.path[0] + "/static/uploads/image/{0}".format(path)
-
-    caption = imageCaptioning(path)
-
-    translated = englishtovernacular(lang=target,text=caption)
-    return caption, translated
 
 
 # path of the audiofile with filename
@@ -198,7 +152,6 @@ def englishaudio_englishtext(path,target):
             print("Could not understand audio")
 
 
-
 def englishaudio_trans(path,target):
     """
     Splitting the large audio file into chunks
@@ -243,30 +196,6 @@ def englishaudio_trans(path,target):
     print(whole_text)
     return whole_text
 
-
-def getVideoId(url):
-    if url.find("watch") != -1:
-        video_id = url.split("=")[1]
-        return video_id
-    else:
-        video_id = url.split("be/")[1]
-        return video_id
-
-# return a text if transcription is available otherwise it return a empty text
-#  if any error occured it return none
-def youtube_translate(url,target):
-    try:
-        video_id = getVideoId(url)
-        transcript = YouTubeTranscriptApi.get_transcript(video_id)
-        result = ""
-        source = dectLang(transcript[0]["text"])
-        for frame in transcript:
-            result += (text2textTranslation(source, target, frame['text']) +" ")
-        return result
-    except Exception as e:
-        print(e)
-        return None
-
 # transliteration 
 
 language = {
@@ -282,32 +211,3 @@ language = {
     "Telugu": "te",
     "Urdu": "ur",
 }
-
-# text - english text , lang- transliteration language name
-def englishtovernacular(text,lang):
-  out = english2vernacular.translit_sentence(text,lang_code = lang)
-  return out
-
-# text - vernacular text , lang - vernacular language name
-def vernaculartoenglish(text,lang):
-  lang_code = language[lang]
-  out = vernacular2english.translit_sentence(text,lang_code = lang_code)
-  return out
-
-
-def download_youtube_video(url, output_path='.'):
-    try:
-        # Create a YouTube object for the video URL
-        yt = pytube.YouTube(url)
-        
-        # Get the highest resolution stream (You can choose different streams as per your requirements)
-        stream = yt.streams.get_highest_resolution()
-        
-        # Download the video to the specified output path
-        filename = stream.download(output_path=output_path)
-        
-        return os.path.basename(filename)
-        
-    except Exception as e:
-        print("An error occurred:", str(e))
-        return None
