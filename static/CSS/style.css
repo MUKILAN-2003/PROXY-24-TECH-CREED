@@ -1,0 +1,100 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+  color: #333;
+  text-align: center;
+}
+
+/* Header Styling */
+header .hero {
+  background-color: #4A90E2;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+header .hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+header .hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+header .hero a {
+  color: white;
+  background-color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Features Section */
+#features {
+  padding: 50px 20px;
+  background-color: #ffffff;
+}
+
+#features h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.tool {
+  margin: 30px auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 30px;
+}
+
+.tool h3 {
+  font-size: 1.5rem;
+}
+
+.tool p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.tool form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+/* Courses Section */
+#courses {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.course {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.course h3 {
+  font-size: 1.5rem;
+}
+
+.course a {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  background-color: #4A90E2;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}

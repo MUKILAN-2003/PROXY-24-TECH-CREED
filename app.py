@@ -1,5 +1,8 @@
-from app import *
-import views.views as views
+import os
+import sys
+from flask import Flask
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='3000',debug=True)
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
