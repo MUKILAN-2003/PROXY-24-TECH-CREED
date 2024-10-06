@@ -1,18 +1,69 @@
 # PROXY'24 HACKATHON - TECH CREED
-AUDIO EDU
-🏆 Hackathon Event: PROXY'24
+### AUDIO EDU 🏆 Hackathon Event: PROXY'24
 
-📘 Overview
-AUDIO EDU is a platform developed in PORXY'24, designed to process the audio files into digital documents format. The transcribed text can be simplified to enhance comprehension for slow learners, making educational content more accessible. The platform also offers real-time transcription in multiple languages, allowing students to follow along in their preferred language. Additionally, AUDIO EDU supports voice-activated Q&A and generates contextual summaries, making it a valuable tool for inclusive education.
+## 📘 Overview
+Students often struggle to keep up with lectures due to the fast pace, compounded by language barriers that make it difficult to comprehend concepts, especially for non-native speakers. This leads to challenges in understanding complex material, particularly when foundational concepts are not fully understood. 
 
-🎯 Features
-Audio Transcription: Converts lectures into text.
-Multilingual Support: Transcribes in the user’s language.
-Voice Q&A: Ask questions and get instant answers.
-Voice Navigation: Hands-free access for disabled students.
+## Problem Identified
+1. Lecture speed: Fast-paced lectures make it hard for some students to follow.
+2. Language barrier: Non-native speakers struggle to comprehend content
+3. Limited resources: Lack of accessible, simplified resources in multiple languages.
+4. Non-native speakers: Often struggle with understanding and pronouncing subject-specific terminology in a foreign script
 
-🎓 How It Benefits Users
-For Slow Learners: Simplifies lecture content to enhance understanding, with easy access to transcriptions and summaries.
-For Multilingual Students: Supports language preferences by transcribing lectures in the student’s chosen language, ensuring better comprehension.
-For Disabled Students: Offers hands-free voice navigation and interaction, enabling full access to educational resources.
-For Educators: Provides insights into student engagement, with summaries of key points and logged interactions, allowing them to adapt teaching strategies.
+## Soluation Terminology
+1. Lecture speed: Offer recorded lectures or slower-paced options to allow students to review at their own pace.
+2. Language barrier: Provide transliteration and translated resources to help non-native speakers understand terminology and concepts.
+3. Limited resources: Create or offer supplementary materials in multiple languages and formats.
+4. Non-native speakers: Using transliteration to convert subject-specific terminology into the student's native script, enabling easier pronunciation and understanding.
+
+##  Solution Technical Workflow
+![image](https://github.com/user-attachments/assets/9be9ecaa-8d6b-45f3-b2e1-dcd20d54d8bf)
+
+## Tech Stack Used
+- Programming Language: Python
+
+- Web Framework: Flask
+
+- Speech-to-Text: SpeechRecognition
+
+- Language Identification: FastText
+
+- Text Embedding: Facebook LLaMA Tokenizer
+
+- Translation/Transliteration: LLaMA Model / ai4bharat
+  
+##  Setting Up on the local Systsm
+### Install Prerequisites:
+```Ensure you have Python installed (preferably version 3.7 or higher).```
+
+### Clone the Repository::
+```
+git clone https://github.com/MUKILAN-2003/PROXY-24-TECH-CREED
+cd PROXY-24-TECH_CREED
+pip install -r requirement.txt
+```
+
+### Fasttext AI Model:
+```
+!wget https://dl.fbaipublicfiles.com/nllb/lid/lid218e.bin
+
+copy the above file inside the models/supportFile/
+```
+
+### Run the Flask Server:
+```
+python main.py
+```
+
+## Impact and Benefits
+1. Enhanced Comprehension: The solution enables users to better understand spoken content by providing accurate text translations or transliterations, thus facilitating learning and communication.
+2. Support for Multilingual Environments: The solution is particularly beneficial in diverse settings, such as classrooms or workplaces, where individuals speak different languages.
+3. Time-Saving: Automated speech-to-text conversion and language identification save users time compared to manual transcription and translation, improving overall productivity.
+4. Immediate Audio Capture : Users can upload or stream audio directly into the application, allowing for on-the-fly processing without delays.
+
+# Reseach and References
+- https://ai4bharat.iitm.ac.in/
+- https://www.codespeedy.com/extract-audio-from-video-using-python/
+- https://www.arxiv-vanity.com/papers/1710.08969/
+- https://github.com/meta-llama/llama/blob/main/MODEL_CARD.md
+- https://www.thepythoncode.com/article/using-speech-recognition-to-convert-speech-to-text-python
