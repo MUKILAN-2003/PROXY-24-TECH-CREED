@@ -55,7 +55,7 @@ copy the above file inside the models/supportFile/
 python main.py
 ```
 
-## Impoact and Benefits
+## Impact and Benefits
 1. Enhanced Comprehension: The solution enables users to better understand spoken content by providing accurate text translations or transliterations, thus facilitating learning and communication.
 2. Support for Multilingual Environments: The solution is particularly beneficial in diverse settings, such as classrooms or workplaces, where individuals speak different languages.
 3. Time-Saving: Automated speech-to-text conversion and language identification save users time compared to manual transcription and translation, improving overall productivity.
